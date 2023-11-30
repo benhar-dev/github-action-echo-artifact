@@ -1,0 +1,36 @@
+name: Combined Actions Test
+
+on: [push]
+
+jobs:
+  test:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Step to use the powershell-project-action
+      - name: Run PowerShell Project Action
+        uses: benhar-dev/github-action-helloworld@v1
+        with:
+          projectName: "Test Project"
+          simulateFail: "false"
+
+      # Assuming the powershell-project-action creates an artifact named 'artifact.txt'
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: artifact
+          path: artifact.txt
+
+      # Step to download the artifact for use in the echo action
+      - name: Download Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: artifact
+
+      # Step to use the github-action-echo-artifact
+      - name: Echo Artifact
+        uses: benhar-dev/github-action-echo-artifact@v1
+        with:
+          artifactPath: artifact.txt

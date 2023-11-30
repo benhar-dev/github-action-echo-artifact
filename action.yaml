@@ -1,0 +1,13 @@
+name: "Dependent Action"
+description: "An action that echos the artifact from a previous action"
+inputs:
+  artifactPath:
+    description: "Path to the artifact file"
+    required: true
+
+runs:
+  using: "composite"
+  steps:
+    - run: |
+        powershell -File ${{ github.workspace }}/scripts/echo-artifact.ps1 -artifactPath ${{ inputs.artifactPath }}
+      shell: pwsh
