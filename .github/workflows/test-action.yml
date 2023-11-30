@@ -11,7 +11,7 @@ jobs:
 
       # Run Helloworld Action
       - name: Run PowerShell Project Action
-        uses: benhar-dev/github-action-helloworld@v1
+        uses: benhar-dev/github-action-helloworld@v2
         with:
           projectName: "Your Project Name"
           simulateFail: "false"
@@ -27,7 +27,7 @@ jobs:
       # Run Dependent Action
       # Ensure that the path matches the location where 'artifact.txt' is generated
       - name: Echo Artifact
-        uses: benhar-dev/github-action-echo-artifact@v1
+        uses: benhar-dev/github-action-echo-artifact@v2
         with:
           artifactPath: artifact.txt # path to the artifact created by Helloworld Action
 
