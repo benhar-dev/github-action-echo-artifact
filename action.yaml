@@ -10,4 +10,4 @@ runs:
   steps:
     - run: |
         powershell -File ${{ github.action_path }}/scripts/echo-artifact.ps1 -artifactPath ${{ inputs.artifactPath }}
-      shell: pwsh
+      shell: powershell

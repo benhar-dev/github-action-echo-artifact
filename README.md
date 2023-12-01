@@ -13,7 +13,7 @@ This action echoes the contents of a specified artifact file using PowerShell.
 ```yaml
 steps:
   - name: Echo Artifact
-    uses: benhar-dev/github-action-echo-artifact@v1
+    uses: benhar-dev/github-action-echo-artifact@v3
     with:
       artifactPath: "path/to/your/artifact.txt"
 ```
